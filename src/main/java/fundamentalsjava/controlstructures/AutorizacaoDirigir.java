@@ -2,7 +2,7 @@ package fundamentalsjava.controlstructures;
 
 import java.util.Scanner;
 
-public class Main {
+public class AutorizacaoDirigir {
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
         System.out.println("Informe seu nome: ");
