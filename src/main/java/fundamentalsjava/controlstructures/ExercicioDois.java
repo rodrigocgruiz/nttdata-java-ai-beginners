@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class ExercicioDois {
     public static void main(String[] args) {
-        var scanner = new Scanner(System.in);
-        double imc;
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Bem vindo à sua calculadora de IMC!");
         System.out.println("Digite E para entrar no sistema e S para sair: ");
@@ -23,23 +22,35 @@ public class ExercicioDois {
                 continue;
             }
 
-            System.out.println("Por favor, informe seu peso: ");
+            System.out.println("Por favor, informe seu peso (kg): ");
+            if (!scanner.hasNextDouble()) {
+                System.out.println("Valor inválido! Por favor, informe um número para o peso.");
+                scanner.next(); // Limpa a entrada inválida
+                continue;
+            }
             double peso = scanner.nextDouble();
 
             System.out.println("Por favor, informe sua altura: ");
+            if (!scanner.hasNextDouble()) {
+                System.out.println("Valor inválido! Por favor, informe um número para a altura.");
+                scanner.next(); // Limpa a entrada inválida
+                continue;
+            }
             double altura = scanner.nextDouble();
 
-            imc = peso / (altura * altura);
+            scanner.nextLine();
+
+            double imc = peso / (altura * altura);
 
             if (imc <= 18.5) {
                 System.out.println("Abaixo do peso!");
-            } else if (imc > 18.5 && imc <= 24.9) {
+            } else if (imc > 18.6 && imc <= 24.9) {
                 System.out.println("Peso normal!");
-            } else if (imc > 24.9 && imc <= 29.9) {
+            } else if (imc > 25.0 && imc <= 29.9) {
                 System.out.println("Sobrepeso!");
-            } else if (imc > 29.9 && imc <= 34.9) {
+            } else if (imc > 30.0 && imc <= 34.9) {
                 System.out.println("Obesidade grau I!");
-            } else if (imc > 34.9 && imc <= 39.9) {
+            } else if (imc > 35.0 && imc <= 39.9) {
                 System.out.println("Obesidade grau II!");
             } else {
                 System.out.println("Obesidade grau III!");
@@ -48,11 +59,16 @@ public class ExercicioDois {
             System.out.println("Deseja fazer nova consulta? Digite E para continuar ou S para sair: )");
             String repeat = scanner.nextLine();
 
-            if (!repeat.equalsIgnoreCase("E") && !repeat.equalsIgnoreCase("S")) {
+            if (repeat.equalsIgnoreCase("E")) {
+                continue;
+            }
+            if (repeat.equalsIgnoreCase("S")){
+                break;
+            }else{
                 System.out.println("Opção inválida! Por favor, informe E para entrar ou S para sair.");
             }
-            continue;
         }
         System.out.println("Obrigado por usar a calculadora de IMC!");
+        scanner.close();
     }
 }
