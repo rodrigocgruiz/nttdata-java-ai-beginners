@@ -1,4 +1,4 @@
-package fundamentalsjava.controlstructures;
+package fundamentalsjava;
 
 import java.util.Scanner;
 

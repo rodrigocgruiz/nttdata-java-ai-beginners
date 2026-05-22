@@ -1,4 +1,4 @@
-package fundamentalsjava.controlstructures;
+package fundamentalsjava;
 
 public class EstruturaRepeticaoPara {
     public static void main(String[] args) {
