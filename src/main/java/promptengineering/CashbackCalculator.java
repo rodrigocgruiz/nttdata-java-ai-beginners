@@ -1,4 +1,4 @@
-package promptengineering.copilotsetup;
+package promptengineering;
 
 import java.util.Scanner;
 
